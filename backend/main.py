@@ -6,6 +6,13 @@ from schema import LoanData
 
 app = FastAPI(title="Credit Risk Prediction API")
 
+# ... your routes ...
+
+if __name__ == "__main__":
+    # Railway provides the port via an environment variable
+    port = int(os.environ.get("PORT", 8000))
+    uvicorn.run(app, host="0.0.0.0", port=port)
+
 # ✅ Load model properly
 BASE_DIR = os.path.dirname(__file__)
 model_path = os.path.join(BASE_DIR, "models", "model.pkl")
