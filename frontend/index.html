@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Credit Risk App>
+</head>
+<body>
+
+    <h2>Credit Risk App</h2>
+
+    <input id="age" placeholder="Age">
+    <input id="amount" placeholder="Amount">
+    <input id="duration" placeholder="Duration">
+
+    <select id="status">
+        <option value="...<0 DM>">Low Balance</option>
+        <option value="0<=...<200 DM>">Medium</option>
+    </select>
+
+    <button onclick="predict()">Predict</button>
+    
+    <h3 id="result"></h3>
+    <script src="script.js" defer></script>
+</body>
+</html>

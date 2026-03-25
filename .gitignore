@@ -1,0 +1,18 @@
+# Python bytecode (the folders currently visible in your image)
+__pycache__/
+*.pyc
+
+# Virtual environments
+venv/
+env/
+
+# Large model files (important for your credit risk models)
+backend/models/*.pkl
+backend/models/*.h5
+backend/models/*.joblib
+
+# Environment variables (if you add them later)
+*.env
+
+# OS specific files
+.DS_Store
