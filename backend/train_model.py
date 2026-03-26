@@ -43,8 +43,11 @@ X_train, X_test, y_train, y_test = train_test_split(
 pipeline.fit(X_train, y_train)
 
 # ✅ SAVE MODEL (IMPORTANT)
-model_path = "models/model.pkl"
-os.makedirs("models", exist_ok=True)
+# ✅ Load model
+BASE_DIR = os.path.dirname(__file__)
+model_path = os.path.join(BASE_DIR, "models", "model.pkl")
+
+os.makedirs(os.path.dirname(model_path), exist_ok=True)
 
 joblib.dump(pipeline, model_path)
 
