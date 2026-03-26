@@ -8,13 +8,13 @@ class LoanData(BaseModel):
     amount: int
     savings: str
     employment_duration: str
-    instalment_rate: int
+    installment_rate: int  # Fixed spelling (double 'l')
     personal_status_sex: str
     other_debtors: str
     present_residence: int
     property: str
     age: int
-    other_installments_plans: str
+    other_installment_plans: str # Fixed spelling (removed 's' from installments)
     housing: str
     number_credits: int
     job: str
