@@ -37,7 +37,7 @@ def health():
 @app.post("/predict")
 def predict(data: LoanData):
     try:
-        input_dict = data.dict()
+        input_dict = data.model_dump() #change to model_dump to get dict from pydantic model    
 
         input_dict.setdefault("installment_rate", 2)
         input_dict.setdefault("other_installment_plans", "none")
