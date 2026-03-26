@@ -6,11 +6,6 @@ __pycache__/
 venv/
 env/
 
-# Large model files (important for your credit risk models)
-backend/models/*.pkl
-backend/models/*.h5
-backend/models/*.joblib
-
 # Environment variables (if you add them later)
 *.env
 
