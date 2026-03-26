@@ -10,7 +10,7 @@ async function predict() {
     purpose: "car",
     savings: "little",
     employment_duration: "1<=X<4",
-    installment_rate: 2, 
+    installment_rate: 2,
     personal_status_sex: "male single",
     other_debtors: "none",
     present_residence: 2,
@@ -25,11 +25,14 @@ async function predict() {
   };
 
   try {
-    const response = await fetch("https://credit-risk-app-production-0929.up.railway.app/predict", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(data),
-    });
+    const response = await fetch(
+      "https://credit-risk-app-production-0929.up.railway.app/predict",
+      {
+        method: "GET",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      },
+    );
 
     const result = await response.json();
 
@@ -42,6 +45,7 @@ async function predict() {
           : `Risky ❌ (Prob: ${result.probability})`;
     }
   } catch (err) {
-    document.getElementById("result").innerText = "Server is offline or URL is wrong.";
+    document.getElementById("result").innerText =
+      "Server is offline or URL is wrong.";
   }
 }
