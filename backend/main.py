@@ -3,8 +3,12 @@ import joblib
 import pandas as pd
 import os
 from schema import LoanData
+from fastapi.middleware.cors import CORSMiddleware
+
+
 
 app = FastAPI(title="Credit Risk Prediction API")
+app.add_middleware(CORSMiddleware, allow_origins=["*"], allow_methods=["*"], allow_headers=["*"],allow_credentials=True)
 
 # ... your routes ...
 
