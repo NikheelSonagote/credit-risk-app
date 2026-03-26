@@ -28,7 +28,7 @@ async function predict() {
     const response = await fetch(
       "https://credit-risk-app-production-0929.up.railway.app/predict",
       {
-        method: "GET",
+        method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),
       },
