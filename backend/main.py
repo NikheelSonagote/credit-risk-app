@@ -21,10 +21,6 @@ model = joblib.load(model_path)
 
 print("✅ Model loaded:", type(model))
 
-@app.get("/")
-def read_root():
-    return {"message": "Credit Risk API is running!"}
-
 @app.post("/predict")
 def predict(data: LoanData):
     try:
