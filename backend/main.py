@@ -5,13 +5,18 @@ import os
 from schema import LoanData
 from fastapi.middleware.cors import CORSMiddleware
 
-
-
 app = FastAPI(title="Credit Risk Prediction API")
-app.add_middleware(CORSMiddleware, allow_origins=["*"], allow_methods=["*"], allow_headers=["*"],allow_credentials=True)
 
+# ✅ CORS
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_methods=["*"],
+    allow_headers=["*"],
+    allow_credentials=True
+)
 
-# ✅ Load model properly
+# ✅ Load model
 BASE_DIR = os.path.dirname(__file__)
 model_path = os.path.join(BASE_DIR, "models", "model.pkl")
 
@@ -19,12 +24,21 @@ model = joblib.load(model_path)
 
 print("✅ Model loaded:", type(model))
 
+# ✅ Health route (IMPORTANT for Railway)
+@app.get("/")
+def home():
+    return {"message": "API running"}
+
+@app.get("/health")
+def health():
+    return {"status": "ok"}
+
+# ✅ Predict route
 @app.post("/predict")
 def predict(data: LoanData):
     try:
         input_dict = data.dict()
 
-        # ✅ Add missing defaults
         input_dict.setdefault("installment_rate", 2)
         input_dict.setdefault("other_installment_plans", "none")
 
