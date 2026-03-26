@@ -32,7 +32,7 @@ except Exception as e:
 
 @app.get("/")
 def home():
-    return {"message": "Credit Risk API is Live"}
+    return {"message": "API is running", "model_loaded": model is not None}
 
 @app.POST("/predict")
 def predict(data: LoanData):
