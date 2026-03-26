@@ -18,7 +18,7 @@ app.add_middleware(
 
 # ✅ Load model (Fixed path: looking in the same folder as main.py)
 BASE_DIR = os.path.dirname(__file__)
-model_path = os.path.join(BASE_DIR, "model.pkl")
+model_path = os.path.join(BASE_DIR, "backend","model.pkl")
 
 if not os.path.exists(model_path):
     raise FileNotFoundError(f"Could not find model.pkl at {model_path}")
