@@ -29,7 +29,7 @@ model = joblib.load(model_path)
 def home():
     return {"message": "Credit Risk API is Live"}
 
-@app.post("/predict")
+@app.GET("/predict")
 def predict(data: LoanData):
     try:
         # ✅ Use model_dump() for Pydantic v2 compatibility
